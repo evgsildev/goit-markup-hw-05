@@ -127,6 +127,23 @@ p {
   letter-spacing: 0.02em;
 }
 
+.header__link--current {
+  position: relative;
+}
+
+.header__link--current::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 4px;
+
+  position: absolute;
+  bottom: -1px;
+
+  background: var(--active-text-color);
+  border-radius: 2px;
+}
+
 .info__link {
   color: var(--main-text-color);
 }
@@ -243,7 +260,7 @@ p {
   line-height: 1.71;
 }
 
-/*Our occuparions*/
+/*Our occupations*/
 
 .heading {
   margin-bottom: 50px;
@@ -255,23 +272,44 @@ p {
   text-align: center;
 }
 
-.occuparions__list {
+.occupations__list {
   display: flex;
   flex-wrap: wrap;
   margin-left: calc(-1 * var(--card-set-gap));
   margin-top: calc(-1 * var(--card-set-gap));
 }
 
-.occuparions__item {
+.occupations__item {
   flex-basis: calc((100% - 3 * 30px) / 3);
   margin-left: var(--card-set-gap);
   margin-top: var(--card-set-gap);
+
+  position: relative;
 }
 
-.occuparions__image {
+.occupations__image {
   display: block;
 }
 
+.occupations__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 70px;
+
+  position: absolute;
+  bottom: 0;
+
+  background: rgba(47, 48, 58, 0.8);
+}
+
+.occupations__description {
+  font-weight: 700;
+  line-height: 1.14;
+  text-transform: uppercase;
+  color: var(--light-text-color);
+}
 /*Team*/
 
 .team {
@@ -518,6 +556,26 @@ p {
 
 .projects__image {
   display: block;
+}
+
+.projects-box {
+  position: relative;
+  overflow: hidden;
+}
+
+.projects-box__description {
+  padding: 63px 24px;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  font-size: 18px;
+  line-height: 1.56;
+  color: var(--light-text-color);
+
+  background: rgba(33, 150, 243, 0.9);
+
+  transform: translateY(100%);
 }
 
 .projects__content {
