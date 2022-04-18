@@ -11,6 +11,9 @@
   --icon-background: #afb1b8;
 
   --card-set-gap: 30px;
+
+  --duration: 250ms;
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 html {
@@ -71,12 +74,24 @@ p {
 .link {
   display: block;
   text-decoration: none;
+
+  transition-duration: var(--duration);
+  transition-timing-function: var(--timing-function);
+}
+
+.icon {
+  transition-property: fill;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--timing-function);
 }
 
 .btn {
   font-family: var(--main-font);
   border: inherit;
   cursor: pointer;
+
+  transition-duration: var(--duration);
+  transition-timing-function: var(--timing-function);
 }
 
 /*Header*/
@@ -125,6 +140,8 @@ p {
   font-weight: 500;
   line-height: 1.14;
   letter-spacing: 0.02em;
+
+  transition-property: color;
 }
 
 .header__link--current {
@@ -210,12 +227,14 @@ p {
   background-color: var(--active-text-color);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
+
+  transition-property: background-color, opacity;
 }
 
 .order__button:hover,
 .order__button:active,
 .order__button:focus {
-  opacity: 0.9;
+  opacity: 0.8;
 }
 
 /*Our qualities*/
@@ -377,12 +396,14 @@ p {
   align-items: center;
 
   border-radius: 50%;
+
+  transition-property: background-color;
 }
 
 .social__link:hover,
 .social__link:active,
 .social__link:focus {
-  background: var(--active-text-color);
+  background-color: var(--active-text-color);
 }
 
 .social__icon {
@@ -418,6 +439,8 @@ p {
 
   border: 1px solid #afb1b8;
   border-radius: 4px;
+
+  transition-property: border;
 }
 .clients_link:hover,
 .clients_link:active,
@@ -486,13 +509,13 @@ p {
 }
 
 .footer .social__link {
-  background: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .footer .social__link:hover,
 .footer .social__link:active,
 .footer .social__link:focus {
-  background: var(--active-text-color);
+  background-color: var(--active-text-color);
 }
 
 .footer .social__icon {
@@ -520,8 +543,10 @@ p {
   line-height: 1.62;
   letter-spacing: 0.03em;
 
-  background: var(--lightgrey-background);
+  background-color: var(--lightgrey-background);
   border-radius: 4px;
+
+  transition-property: background-color, color, filter;
 }
 
 .portfolio__item:first-child .portfolio__button,
@@ -545,6 +570,10 @@ p {
   flex-basis: calc((100% - 3 * 30px) / 3);
   margin-left: var(--card-set-gap);
   margin-top: var(--card-set-gap);
+}
+
+.projects__link {
+  transition-property: box-shadow;
 }
 
 .projects__link:hover,
@@ -576,6 +605,16 @@ p {
   background: rgba(33, 150, 243, 0.9);
 
   transform: translateY(100%);
+
+  transition-property: transform;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--timing-function);
+}
+
+.projects__link:hover .projects-box__description,
+.projects__link:active .projects-box__description,
+.projects__link:focus .projects-box__description {
+  transform: translateY(0%);
 }
 
 .projects__content {
@@ -599,4 +638,71 @@ p {
 
   font-size: 16px;
   line-height: 1.88;
+}
+
+/*Backdrop*/
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.2);
+
+  transition-duration: opacity;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--timing-function);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+
+  min-width: 528px;
+  min-height: 581px;
+  padding: 40px;
+
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  background: var(--light-text-color);
+
+  transition-duration: transform;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--timing-function);
+}
+
+.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.8);
+}
+
+.modal__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  background: transparent;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.modal__btn:hover .icon,
+.modal__btn:active .icon,
+.modal__btn:focus .icon {
+  fill: var(--active-text-color);
 }
