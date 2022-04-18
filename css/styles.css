@@ -16,16 +16,6 @@
   --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-html {
-  box-sizing: border-box;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-
 body {
   font-family: var(--main-font);
   letter-spacing: 0.03em;
