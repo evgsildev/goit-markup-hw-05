@@ -583,6 +583,7 @@ p {
 }
 
 .projects-box__description {
+  height: 100%;
   padding: 63px 24px;
   position: absolute;
   top: 0;
